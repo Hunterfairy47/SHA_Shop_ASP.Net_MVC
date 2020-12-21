@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHA_Shop", "SHA_Shop\SHA_Shop.csproj", "{50056C80-9C7F-43A1-8EB4-344FF1B20DD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50056C80-9C7F-43A1-8EB4-344FF1B20DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50056C80-9C7F-43A1-8EB4-344FF1B20DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50056C80-9C7F-43A1-8EB4-344FF1B20DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50056C80-9C7F-43A1-8EB4-344FF1B20DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BE5BB8A-A16B-4324-A534-844818C09BE1}
+	EndGlobalSection
+EndGlobal
