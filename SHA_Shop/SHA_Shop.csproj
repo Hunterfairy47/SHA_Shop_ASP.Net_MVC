@@ -135,6 +135,7 @@
     <Content Include="Assets\user\css\owl.carousel.min.css" />
     <Content Include="Assets\user\css\slicknav.min.css" />
     <Content Include="Assets\user\css\style.css" />
+    <Content Include="Assets\user\css\login.css" />
     <Content Include="Assets\user\fonts\ElegantIcons.svg" />
     <Content Include="Assets\user\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\user\img\banner\banner-1.jpg" />
