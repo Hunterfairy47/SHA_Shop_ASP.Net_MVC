@@ -422,7 +422,7 @@ ol {
 .header__menu ul li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 50px;
+	margin-right: 48px;
 	position: relative;
 }
 
@@ -505,7 +505,7 @@ ol {
 .header__cart ul li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 28px;
 }
 
 .header__cart ul li:last-child {
@@ -649,10 +649,10 @@ ol {
 .hero__search__form form .hero__search__categories {
 	width: 30%;
 	float: left;
-	font-size: 16px;
+	font-size: 21px;
 	color: #1c1c1c;
-	font-weight: 700;
-	padding-left: 18px;
+	font-weight: 600;
+	padding-left: 36px;
 	padding-top: 11px;
 	position: relative;
 }
