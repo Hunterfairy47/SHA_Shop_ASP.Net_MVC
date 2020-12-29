@@ -120,7 +120,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\ShopProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,7 +158,6 @@
     <Content Include="Assets\user\img\blog\sidebar\sr-1.jpg" />
     <Content Include="Assets\user\img\blog\sidebar\sr-2.jpg" />
     <Content Include="Assets\user\img\blog\sidebar\sr-3.jpg" />
-    <Content Include="Assets\user\img\breadcrumb.jpg" />
     <Content Include="Assets\user\img\cart\cart-1.jpg" />
     <Content Include="Assets\user\img\cart\cart-2.jpg" />
     <Content Include="Assets\user\img\cart\cart-3.jpg" />
@@ -170,11 +175,9 @@
     <Content Include="Assets\user\img\featured\feature-7.jpg" />
     <Content Include="Assets\user\img\featured\feature-8.jpg" />
     <Content Include="Assets\user\img\hero\banner.jpg" />
-    <Content Include="Assets\user\img\language.png" />
     <Content Include="Assets\user\img\latest-product\lp-1.jpg" />
     <Content Include="Assets\user\img\latest-product\lp-2.jpg" />
     <Content Include="Assets\user\img\latest-product\lp-3.jpg" />
-    <Content Include="Assets\user\img\logo.png" />
     <Content Include="Assets\user\img\payment-item.png" />
     <Content Include="Assets\user\img\product\details\product-details-1.jpg" />
     <Content Include="Assets\user\img\product\details\product-details-2.jpg" />
@@ -270,11 +273,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Blog\Blog.cshtml" />
+    <Content Include="Views\Checkout\Checkout.cshtml" />
+    <Content Include="Views\ShopCart\ShopCart.cshtml" />
+    <Content Include="Views\ShopProduct\ShopProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

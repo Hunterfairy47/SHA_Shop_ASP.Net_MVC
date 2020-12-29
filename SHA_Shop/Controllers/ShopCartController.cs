@@ -6,9 +6,10 @@ using System.Web.Mvc;
 
 namespace SHA_Shop.Controllers
 {
-    public class HomeController : Controller
+    public class ShopCartController : Controller
     {
-        public ActionResult Index()
+        // GET: ShopCart
+        public ActionResult ShopCart()
         {
             return View();
         }

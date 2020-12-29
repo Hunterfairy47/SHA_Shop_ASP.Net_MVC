@@ -6,10 +6,12 @@ using System.Web.Mvc;
 
 namespace SHA_Shop.Controllers
 {
-    public class HomeController : Controller
+    public class ContactController : Controller
     {
-        public ActionResult Index()
+        // GET: Contact
+        public ActionResult Contact()
         {
+            ViewBag.Message = "Your contact page.";
             return View();
         }
     }
