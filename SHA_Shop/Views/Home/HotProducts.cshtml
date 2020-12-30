@@ -1,0 +1,44 @@
+﻿@using SHA_Shop.Models
+@model List<SANPHAM>
+
+
+<div class="col-lg-4 col-md-6">
+    <div class="latest-product__text">
+        <h4>Bán chạy nhất</h4>
+        <div class="latest-product__slider owl-carousel">
+            <div class="latest-prdouct__slider__item">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <a href="#" class="latest-product__item">
+                            <div class="latest-product__item__pic">
+                                <img src="@Url.Content("/Assets/user/img/latest-product/" + item.Anh)" alt="@item.TenSP">
+                            </div>
+                            <div class="latest-product__item__text">
+                                <h6>@item.TenSP</h6>
+                                <span>@item.GiaSP</span>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+
+            <div class="latest-prdouct__slider__item">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <a href="#" class="latest-product__item">
+                            <div class="latest-product__item__pic">
+                                <img src="@Url.Content("/Assets/user/img/latest-product/" + item.Anh)" alt="@item.TenSP">
+                            </div>
+                            <div class="latest-product__item__text">
+                                <h6>@item.TenSP</h6>
+                                <span>@item.GiaSP</span>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

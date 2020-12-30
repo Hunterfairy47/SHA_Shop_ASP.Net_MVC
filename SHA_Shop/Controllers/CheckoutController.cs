@@ -9,7 +9,7 @@ namespace SHA_Shop.Controllers
     public class CheckoutController : Controller
     {
         // GET: Checkout
-        public ActionResult Checkout()
+        public ActionResult Index()
         {
             return View();
         }

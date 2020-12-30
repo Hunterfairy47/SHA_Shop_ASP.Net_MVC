@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,12 +132,25 @@
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ShopCartController.cs" />
-    <Compile Include="Controllers\ShopProductController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\CHITIETDONHANG.cs" />
+    <Compile Include="Models\DANHMUC.cs" />
+    <Compile Include="Models\DONHANG.cs" />
+    <Compile Include="Models\KHUYENMAI.cs" />
+    <Compile Include="Models\LienHe.cs" />
+    <Compile Include="Models\SHAContext.cs" />
+    <Compile Include="Models\NGUOIDUNG.cs" />
+    <Compile Include="Models\PhieuPhanHoi.cs" />
+    <Compile Include="Models\SANPHAM.cs" />
+    <Compile Include="Models\Slide.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,37 +196,12 @@
     <Content Include="Assets\user\img\featured\feature-7.jpg" />
     <Content Include="Assets\user\img\featured\feature-8.jpg" />
     <Content Include="Assets\user\img\hero\banner.jpg" />
-    <Content Include="Assets\user\img\latest-product\lp-1.jpg" />
-    <Content Include="Assets\user\img\latest-product\lp-2.jpg" />
-    <Content Include="Assets\user\img\latest-product\lp-3.jpg" />
     <Content Include="Assets\user\img\payment-item.png" />
-    <Content Include="Assets\user\img\product\details\product-details-1.jpg" />
-    <Content Include="Assets\user\img\product\details\product-details-2.jpg" />
-    <Content Include="Assets\user\img\product\details\product-details-3.jpg" />
-    <Content Include="Assets\user\img\product\details\product-details-4.jpg" />
-    <Content Include="Assets\user\img\product\details\product-details-5.jpg" />
-    <Content Include="Assets\user\img\product\details\thumb-1.jpg" />
-    <Content Include="Assets\user\img\product\details\thumb-2.jpg" />
-    <Content Include="Assets\user\img\product\details\thumb-3.jpg" />
-    <Content Include="Assets\user\img\product\details\thumb-4.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-1.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-2.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-3.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-4.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-5.jpg" />
-    <Content Include="Assets\user\img\product\discount\pd-6.jpg" />
-    <Content Include="Assets\user\img\product\product-1.jpg" />
-    <Content Include="Assets\user\img\product\product-10.jpg" />
-    <Content Include="Assets\user\img\product\product-11.jpg" />
-    <Content Include="Assets\user\img\product\product-12.jpg" />
-    <Content Include="Assets\user\img\product\product-2.jpg" />
-    <Content Include="Assets\user\img\product\product-3.jpg" />
-    <Content Include="Assets\user\img\product\product-4.jpg" />
-    <Content Include="Assets\user\img\product\product-5.jpg" />
-    <Content Include="Assets\user\img\product\product-6.jpg" />
-    <Content Include="Assets\user\img\product\product-7.jpg" />
-    <Content Include="Assets\user\img\product\product-8.jpg" />
-    <Content Include="Assets\user\img\product\product-9.jpg" />
+    <Content Include="Assets\user\img\product\cat1.jpg" />
+    <Content Include="Assets\user\img\product\cat2.jpg" />
+    <Content Include="Assets\user\img\product\cat3.jpg" />
+    <Content Include="Assets\user\img\product\cat4.jpg" />
+    <Content Include="Assets\user\img\product\cat5.jpg" />
     <Content Include="Assets\user\js\bootstrap.min.js" />
     <Content Include="Assets\user\js\jquery-3.3.1.min.js" />
     <Content Include="Assets\user\js\jquery-ui.min.js" />
@@ -274,17 +270,20 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Blog\Blog.cshtml" />
-    <Content Include="Views\Checkout\Checkout.cshtml" />
-    <Content Include="Views\ShopCart\ShopCart.cshtml" />
-    <Content Include="Views\ShopProduct\ShopProduct.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\ShopCart\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\LatestProducts.cshtml" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\Home\HotProducts.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\admin\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace SHA_Shop.Controllers
 {
-    public class ShopCartController : Controller
+    public class ProductDetailController : Controller
     {
-        // GET: ShopCart
+        // GET: ProductDetail
         public ActionResult Index()
         {
             return View();

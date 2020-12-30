@@ -9,7 +9,7 @@ namespace SHA_Shop.Controllers
     public class BlogController : Controller
     {
         // GET: Blog
-        public ActionResult Blog()
+        public ActionResult Index()
         {
             return View();
         }

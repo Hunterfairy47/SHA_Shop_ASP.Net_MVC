@@ -6,10 +6,15 @@ using System.Web.Mvc;
 
 namespace SHA_Shop.Controllers
 {
-    public class ShopCartController : Controller
+    public class UserController : Controller
     {
-        // GET: ShopCart
-        public ActionResult Index()
+        // GET: Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
         {
             return View();
         }

@@ -1,0 +1,25 @@
+﻿@using SHA_Shop.Models
+@model List<SANPHAM>
+
+
+<section class="categories mt-5">
+    <div class="container">
+        <div class="section-title from-blog__title mb-5">
+            <h2 class="mb-4 text-center">Sản phẩm mới nhất</h2>
+        </div>
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg" data-setbg="@Url.Content("/Assets/user/img/product/" + item.Anh)">
+                                <h5><a href="#">@item.TenSP</a></h5>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
