@@ -10,7 +10,6 @@ namespace SHA_Shop.Models
     public partial class KHUYENMAI
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaKM { get; set; }
 
         [StringLength(200)]

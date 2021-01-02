@@ -45,7 +45,7 @@
     background: transparent;
 }
 
-.form-input span{
+.form-input {
     position: absolute;
     top: 10px;
     padding-left: 15px;

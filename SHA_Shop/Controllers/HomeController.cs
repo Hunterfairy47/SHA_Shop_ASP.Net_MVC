@@ -9,7 +9,7 @@ namespace SHA_Shop.Controllers
 {
     public class HomeController : Controller
     {
-        SHAContext db = new SHAContext();
+        SHAshopDB db = new SHAshopDB();
         public ActionResult Index()
         {
             return View();

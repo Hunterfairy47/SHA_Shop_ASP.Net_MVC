@@ -5,23 +5,23 @@ using System.Linq;
 
 namespace SHA_Shop.Models
 {
-    public partial class SHAContext : DbContext
+    public partial class SHAshopDB : DbContext
     {
-        public SHAContext()
-            : base("name=SHAContext")
+        public SHAshopDB()
+            : base("name=SHAshopDB")
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Animistrator> Animistrators { get; set; }
         public virtual DbSet<CHITIETDONHANG> CHITIETDONHANGs { get; set; }
         public virtual DbSet<DANHMUC> DANHMUCs { get; set; }
         public virtual DbSet<DONHANG> DONHANGs { get; set; }
         public virtual DbSet<KHUYENMAI> KHUYENMAIs { get; set; }
-        public virtual DbSet<LienHe> LienHes { get; set; }
+        public virtual DbSet<LIENHE> LIENHEs { get; set; }
         public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
-        public virtual DbSet<PhieuPhanHoi> PhieuPhanHois { get; set; }
+        public virtual DbSet<PHIEUPHANHOI> PHIEUPHANHOIs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
-        public virtual DbSet<Slide> Slides { get; set; }
+        public virtual DbSet<SLIDE> SLIDEs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -49,8 +49,7 @@ namespace SHA_Shop.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
-                .Property(e => e.SDT)
-                .IsFixedLength()
+                .Property(e => e.MatKhau)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
@@ -58,11 +57,15 @@ namespace SHA_Shop.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
+                .Property(e => e.SDT)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NGUOIDUNG>()
                 .HasMany(e => e.DONHANGs)
                 .WithRequired(e => e.NGUOIDUNG)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PhieuPhanHoi>()
+            modelBuilder.Entity<PHIEUPHANHOI>()
                 .Property(e => e.SDT)
                 .IsFixedLength()
                 .IsUnicode(false);

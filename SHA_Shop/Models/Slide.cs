@@ -6,11 +6,10 @@ namespace SHA_Shop.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Slide")]
-    public partial class Slide
+    [Table("SLIDE")]
+    public partial class SLIDE
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDSlide { get; set; }
 
         [StringLength(250)]

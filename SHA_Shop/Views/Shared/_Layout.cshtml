@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="/Assets/user/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="/Assets/user/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/Assets/user/css/slicknav.min.css" type="text/css">
-    <link href="~/Assets/user/css/style.css" rel="stylesheet" type="text/css"/>
-    
+    <link href="~/Assets/user/css/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -44,10 +44,14 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="/User/Login">
-                    <i class="fa fa-user"></i>
-                    Đăng nhập
-                </a>
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <span>@Session["TaiKhoan"]</span>
+                    <a href="@Url.Action("LogOut", "User")"><i class="fa fa-user"></i> Đăng xuất</a> }
+                else
+                {
+                    <a href="/User/Login"><i class="fa fa-user"></i> Đăng nhập</a>
+                    <a href="/User/Register"><i class="fa fa-user"></i> Đăng ký</a>}
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -94,7 +98,24 @@
                                 <a href="https://www.instagram.com/phucan332/"><i class="fa fa-instagram"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="/User/Login"><i class="fa fa-user"></i> Đăng nhập</a>
+                                @if (Session["TaiKhoan"] != null)
+                                {
+                                    <div class="account d-flex">
+                                    <ul style="display: block">
+                                    <div><i class="fa fa-user"></i> @Session["TaiKhoan"] </div>
+                                        <li>
+                                            <a href="@Url.Action("LogOut", "User")"> Đăng xuất</a>
+                                        </li>
+                                    </ul>                                   
+                                    </div>
+                                 }
+                                else
+                                {
+                                    <div class="d-flex">
+                                    <a href="/User/Login" class="mr-4"><i class="fa fa-user"></i> Đăng nhập</a>
+                                    <a href="/user/register"><i class="fa fa-user-plus"></i> đăng ký</a>
+                                   </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -126,7 +147,7 @@
                             <li><a href="/Checkout"><i class="fa fa-money"></i> <span>1</span></a></li>
                             <li><a href="/ShopCart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        
+
                     </div>
                 </div>
             </div>
@@ -155,38 +176,31 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>Hướng dẵn</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Hướng dẵn mua bánh</a></li>
+                            <li><a href="#">Giao nhận và thanh toán</a></li>
+                            <li><a href="#">Đổi trả</a></li>
                         </ul>
+                        <h6>Chính sách</h6>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Chính sách - Quy định chung</a></li>
+                            <li><a href="#">Bảo mật thông tin</a></li>
+                            <li><a href="#">Khiếu nại - Góp ý </a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>Đăng ký nhận tin</h6>
+                        <p>Đăng ký nhận thông tin ưu đãi cùng với khuyến mãi khủng từ Tiệm bánh SHA - 0367 888 655</p>
                         <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <input type="text" placeholder="Nhập mail của bạn">
+                            <button type="submit" class="site-btn">Đăng ký</button>
                         </form>
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100009726633978"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/phucan332/"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -209,7 +223,6 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="/Assets/user/js/jquery-3.3.1.min.js"></script>
     <script src="/Assets/user/js/bootstrap.min.js"></script>
@@ -219,7 +232,7 @@
     <script src="/Assets/user/js/mixitup.min.js"></script>
     <script src="/Assets/user/js/owl.carousel.min.js"></script>
     <script src="/Assets/user/js/main.js"></script>
- 
+
 </body>
 
 </html>

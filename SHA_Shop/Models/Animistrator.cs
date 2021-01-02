@@ -6,8 +6,8 @@ namespace SHA_Shop.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Admin")]
-    public partial class Admin
+    [Table("Animistrator")]
+    public partial class Animistrator
     {
         [Key]
         [StringLength(30)]

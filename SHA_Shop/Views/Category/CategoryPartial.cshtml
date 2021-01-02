@@ -1,0 +1,14 @@
+﻿@using SHA_Shop.Models
+@model List<DANHMUC>
+
+    <ul>
+@{
+        foreach (var item in Model)
+        {
+
+        <li><a href="#">@item.TenDM</a></li>
+        }
+}
+    </ul>
+
+

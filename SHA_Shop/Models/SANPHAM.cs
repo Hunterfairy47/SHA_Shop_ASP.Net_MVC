@@ -17,7 +17,6 @@ namespace SHA_Shop.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaSP { get; set; }
 
         [StringLength(250)]

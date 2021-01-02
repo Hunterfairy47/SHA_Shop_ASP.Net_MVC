@@ -16,7 +16,6 @@ namespace SHA_Shop.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaDH { get; set; }
 
         public DateTime? NgayDatHang { get; set; }

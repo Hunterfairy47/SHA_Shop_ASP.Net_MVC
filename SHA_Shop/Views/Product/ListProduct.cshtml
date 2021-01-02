@@ -1,0 +1,56 @@
+﻿@using SHA_Shop.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+
+<style>
+    .pagination li {
+        display: inline-block;
+        width: 30px;
+        border: 1px solid #000000;
+        font-size: 14px;
+        color: #000000;
+        text-align: center;
+        line-height: 28px;
+        margin-right: 10px;
+    }
+
+        .pagination li:hover {
+            background: #ff3a95;
+            border-color: #ff3a95;
+            color: #ffff;
+            cursor: pointer;
+        }
+
+    .pagination a {
+        display: block;
+    }
+</style>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/Assets/User/img/product/" +item.Anh)">
+                    <ul class="product__item__pic__hover">
+                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6><a href="#">@item.TenSP</a></h6>
+                    <h5>@item.GiaSP₫</h5>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<div class="col-md-12">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+
+</div>

@@ -6,11 +6,10 @@ namespace SHA_Shop.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("LienHe")]
-    public partial class LienHe
+    [Table("LIENHE")]
+    public partial class LIENHE
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IDLienHe { get; set; }
 
         [StringLength(500)]
