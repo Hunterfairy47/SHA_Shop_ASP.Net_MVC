@@ -6,8 +6,8 @@ namespace SHA_Shop.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PHIEUPHANHOI")]
-    public partial class PHIEUPHANHOI
+    [Table("PhieuPhanHoi")]
+    public partial class PhieuPhanHoi
     {
         [Key]
         public int MaPhieu { get; set; }

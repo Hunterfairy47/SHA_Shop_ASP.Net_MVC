@@ -146,15 +146,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Animistrator.cs" />
+    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\CHITIETDONHANG.cs" />
+    <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Models\DANHMUC.cs" />
     <Compile Include="Models\DONHANG.cs" />
     <Compile Include="Models\KHUYENMAI.cs" />
     <Compile Include="Models\LIENHE.cs" />
     <Compile Include="Models\SHAshopDB.cs" />
     <Compile Include="Models\NGUOIDUNG.cs" />
-    <Compile Include="Models\PHIEUPHANHOI.cs" />
+    <Compile Include="Models\PhieuPhanHoi.cs" />
     <Compile Include="Models\SANPHAM.cs" />
     <Compile Include="Models\SLIDE.cs" />
     <Compile Include="Models\sysdiagram.cs" />
@@ -294,6 +295,8 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Product\ListProduct.cshtml" />
     <Content Include="Views\Category\CategoryPartial.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\ShopCart\ShopCartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

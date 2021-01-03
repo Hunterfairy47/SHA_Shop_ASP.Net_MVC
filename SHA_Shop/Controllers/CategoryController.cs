@@ -13,7 +13,7 @@ namespace SHA_Shop.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            return View();
+            return View(db.DANHMUCs.OrderBy(x=> x.Sapxep).ToList());
         }
 
         public PartialViewResult CategoryPartial()

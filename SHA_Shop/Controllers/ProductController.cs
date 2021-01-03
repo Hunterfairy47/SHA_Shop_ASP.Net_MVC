@@ -21,7 +21,7 @@ namespace SHA_Shop.Controllers
         public PartialViewResult ListProduct(int? page)
         {
             var pageNumber = page ?? 1;
-            var pageSize = 6;
+            var pageSize = 9;
             var listproduct = db.SANPHAMs.OrderByDescending(x => x.MaSP).ToPagedList(pageNumber, pageSize);
             return PartialView(listproduct);
         }

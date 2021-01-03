@@ -1,4 +1,4 @@
-﻿namespace SHA_Shop.Models
+namespace SHA_Shop.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,35 +18,28 @@
         [Key]
         public int IDNguoiDung { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Vui lòng nhập họ tên!")]
-        public string HoTen { get; set; }
-
-        [StringLength(50)]
-        [Required(ErrorMessage = "Vui lòng nhập Tài khoản!")]
+        [StringLength(100)]
         public string TaiKhoan { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Vui lòng nhập mật khẩu!")]
+        [StringLength(17)]
         public string MatKhau { get; set; }
 
         [NotMapped]
         [Compare("MatKhau")]
-        [StringLength(50)]
-        [Required(ErrorMessage = "Vui lòng nhập lại mật khẩu!")]
+        [StringLength(17)]
         public string NhapLaiMatKhau { get; set; }
 
-        [StringLength(100)]
-        [Required(ErrorMessage = "Vui lòng nhập Email!")]
-        public string Email { get; set; }
+        [StringLength(250)]
+        public string Ten { get; set; }
 
-        [StringLength(200)]
-        [Required(ErrorMessage = "Vui lòng nhập địa chỉ!")]
+        [StringLength(250)]
         public string DiaChi { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Vui lòng nhập Số điện thoại!")]
+        [StringLength(13)]
         public string SDT { get; set; }
+
+        [StringLength(100)]
+        public string Email { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }

@@ -47,8 +47,8 @@
                         @Html.AntiForgeryToken()
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                @Html.TextBoxFor(x => x.HoTen, new { @class = "form-control form-control-user", @placeholder = "Họ Tên" })
-                                @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(x => x.Ten, new { @class = "form-control form-control-user", @placeholder = "Họ Tên" })
+                                @Html.ValidationMessageFor(m => m.Ten, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-sm-6">
                                 @Html.TextBoxFor(x => x.TaiKhoan, new { @class = "form-control form-control-user", @placeholder = "Tài khoản" })

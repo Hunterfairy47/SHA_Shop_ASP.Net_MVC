@@ -11,6 +11,7 @@ namespace SHA_Shop.Models
     {
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaDH { get; set; }
 
         [Key]
