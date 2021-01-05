@@ -32,7 +32,9 @@
     {
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/Assets/User/img/product/" +item.Anh)">
+                <div class="product__item__pic set-bg">
+                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"> <img src="@Url.Content("~/Assets/User/img/product/" + item.Anh)" /></a>
+                   
                     <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="@Url.Action("AddShopCart", "ShopCart", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString()})"><i class="fa fa-shopping-cart"></i></a></li>

@@ -10,6 +10,7 @@ namespace SHA_Shop.Controllers
     public class CategoryController : Controller
     {
         SHAshopDB db = new SHAshopDB();
+
         // GET: Category
         public ActionResult Index()
         {

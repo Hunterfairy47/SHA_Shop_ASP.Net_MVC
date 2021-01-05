@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using System.Net;
+
 namespace SHA_Shop.Controllers
 {
     public class ProductController : Controller
@@ -26,19 +28,17 @@ namespace SHA_Shop.Controllers
             return PartialView(listproduct);
         }
 
+        public  ActionResult ProductDetail(int? id)
+        {
+            SANPHAM sp = db.SANPHAMs.Find(id);       
+            return View(sp);
+        }
+
+        public ActionResult CategoryProduct(int id)
+        {
+            var sp = from s in db.SANPHAMs where s.MaDM == id select s;
+            return View(sp);
+        }
     }
 }
-        //private List<SANPHAM> layspmoi(int count)
-        //{
-        //    return db.SANPHAMs.OrderByDescending(x => x.MaSP).Take(count).ToList();
-        //}
-
-        ////public ActionResult Products(int? page)
-        ////{
-        ////    int pageSize = 9;
-
-        ////    int pageNum = (page ?? 1);
-
-        ////    var spmoi = layspmoi(30);
-        ////    return View(spmoi.ToPagedList(pageNum, pageSize));
-        ////}
+   

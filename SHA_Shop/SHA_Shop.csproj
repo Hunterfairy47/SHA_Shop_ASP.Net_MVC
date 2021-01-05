@@ -140,7 +140,6 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ShopCartController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -290,13 +289,15 @@
     <Content Include="Views\ShopCart\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\LatestProducts.cshtml" />
-    <Content Include="Views\ProductDetail\Index.cshtml" />
     <Content Include="Views\Home\HotProducts.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Product\ListProduct.cshtml" />
     <Content Include="Views\Category\CategoryPartial.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\ShopCart\ShopCartPartial.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\ShopCart\ShopCartNull.cshtml" />
+    <Content Include="Views\Product\CategoryProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

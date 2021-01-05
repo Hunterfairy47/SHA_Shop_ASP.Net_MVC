@@ -1,7 +1,11 @@
 ﻿@using SHA_Shop.Models
 @model List<SANPHAM>
 
-
+<style>
+    .categories__item set-bg {
+        object-fit: cover;
+    }
+</style>
 <section class="categories mt-5">
     <div class="container">
         <div class="section-title from-blog__title mb-5">
@@ -13,8 +17,9 @@
                     foreach (var item in Model)
                     {
                         <div class="col-lg-3">
-                            <div class="categories__item set-bg" data-setbg="@Url.Content("/Assets/user/img/product/" + item.Anh)">
-                                <h5><a href="#">@item.TenSP</a></h5>
+                            <div class="categories__item set-bg">
+                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"> <img src="@Url.Content("~/Assets/User/img/product/" + item.Anh)" style="object-fit: cover"></a>
+                                <h5><a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">@item.TenSP</a></h5>
                             </div>
                         </div>
                     }

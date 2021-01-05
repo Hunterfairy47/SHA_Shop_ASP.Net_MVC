@@ -1721,11 +1721,13 @@ ol {
 }
 
 .pro-qty .qtybtn {
-	width: 35px;
+	width: 30px !important;
 	font-size: 16px;
 	color: #6f6f6f;
 	cursor: pointer;
 	display: inline-block;
+	outline: none;
+	border: none;
 }
 
 .product__details__tab {

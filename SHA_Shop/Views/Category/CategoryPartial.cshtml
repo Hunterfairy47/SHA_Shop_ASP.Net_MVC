@@ -1,14 +1,14 @@
 ﻿@using SHA_Shop.Models
 @model List<DANHMUC>
 
-    <ul>
-@{
+<ul>
+    @{
         foreach (var item in Model)
         {
 
-        <li><a href="#">@item.TenDM</a></li>
+            <li><a href="@Url.Action("CategoryProduct", "Product", new { id = item.MaDM})">@item.TenDM</a></li>
         }
-}
-    </ul>
+    }
+</ul>
 
 

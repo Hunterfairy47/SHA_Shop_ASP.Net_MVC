@@ -79,13 +79,53 @@ namespace SHA_Shop.Controllers
             return PartialView();
         }
 
+        //Xóa giỏ hàng
+        public ActionResult DeleteShopCart(int iMaSp)
+        {
+            //Lấy giỏ hàng từ session
+            List<ShopCart> listShopCart = GetShopCart();
+            //Kiểm tra đã có trong Session ["ShopCart"]
+            ShopCart sp = listShopCart.SingleOrDefault(n => n.iMaSP == iMaSp);
+            if (sp !=  null)
+            {
+                listShopCart.RemoveAll(n => n.iMaSP == iMaSp);
+                return RedirectToAction("Index", "ShopCart");
+            }
+            if (listShopCart.Count == 0)
+            {
+                return RedirectToAction("Index", "ShopCart");
+            }
+            return RedirectToAction("Index", "ShopCart");
+        }
+
+        //Cập nhật giỏ hàng
+        public ActionResult UpdateShopCart(int iMaSP, FormCollection f)
+        {
+            //Lấy giỏ hàng từ session
+            List<ShopCart> listShopCart = GetShopCart();
+            //Kiểm tra đã có trong Session ["ShopCart"]
+            ShopCart sp = listShopCart.SingleOrDefault(n => n.iMaSP == iMaSP);
+            if (sp != null)
+            {
+                sp.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
+            }
+            return RedirectToAction("Index", "ShopCart");
+        }
+
+        //Giỏ null
+        public ActionResult ShopCartNull()
+        {
+            return View();
+        }
+
+
         //Xây dưng trang giỏ hàng
         public ActionResult Index() 
         {
             List<ShopCart> lsCart = GetShopCart();
             if (lsCart.Count == 0)
             {
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("ShopCartNull", "ShopCart");
             }
             ViewBag.TotalQuantity = TotalQuantity();
             ViewBag.SubTotal = SubTotal();
