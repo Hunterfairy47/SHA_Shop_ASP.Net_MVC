@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<SHA_Shop.Models.SANPHAM>
+
+@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -19,8 +21,8 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text" placeholder="Bạn cần tìm gì?">
+                        <form action="@Url.Action("Index", "Product", FormMethod.Get)">
+                            <input type="text" name="search" placeholder="Bạn cần tìm gì?">
                             <button type="submit" class="site-btn">Tìm kiếm</button>
                         </form>
                     </div>
@@ -66,42 +68,8 @@
 </section>
 <!-- Hero Section End -->
 <!-- Categories Section Begin -->
-<section class="categories mt-2 ">
-    <div class="container">
-        <div class="section-title from-blog__title mb-5">
-            <h2 class="mb-4 text-center">Sản phẩm bán chạy</h2>
-        </div>
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="/Assets/user/img/categories/cat1.jpg">
-                        <h5><a href="#">Tiramisu classic</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="/Assets/user/img/categories/cat2.jpg">
-                        <h5><a href="#">Chocolate mousse</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="/Assets/user/img/categories/cat3.jpg">
-                        <h5><a href="#">Pancake Chocomint</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="/Assets/user/img/categories/cat4.jpg">
-                        <h5><a href="#">Chocolate Birthday</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="/Assets/user/img/categories/cat5.jpg">
-                        <h5><a href="#">Fruit Frenzy</a></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@Html.Action("HotProducts", "Home")
+
 
 @Html.Action("LatestProducts", "Home")
 

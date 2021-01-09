@@ -1,44 +1,32 @@
 ﻿@using SHA_Shop.Models
 @model List<SANPHAM>
 
-
-<div class="col-lg-4 col-md-6">
-    <div class="latest-product__text">
-        <h4>Bán chạy nhất</h4>
-        <div class="latest-product__slider owl-carousel">
-            <div class="latest-prdouct__slider__item">
+<style>
+    .categories__item set-bg {
+        object-fit: cover;
+    }
+</style>
+<section class="categories mt-5">
+    <div class="container">
+        <div class="section-title from-blog__title mb-5">
+            <h2 class="mb-4 text-center">Sản phẩm bán chạy nhất</h2>
+        </div>
+        <div class="row">
+            <div class="categories__slider owl-carousel">
                 @{
                     foreach (var item in Model)
                     {
-                        <a href="#" class="latest-product__item">
-                            <div class="latest-product__item__pic">
-                                <img src="@Url.Content("/Assets/user/img/latest-product/" + item.Anh)" alt="@item.TenSP">
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg">
+                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
+                                    <img src="@Url.Content("~/Assets/User/img/product/" + item.Anh)" style="object-fit: cover">
+                                </a>
+                                <h5><a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">@item.TenSP</a></h5>
                             </div>
-                            <div class="latest-product__item__text">
-                                <h6>@item.TenSP</h6>
-                                <span>@item.GiaSP</span>
-                            </div>
-                        </a>
-                    }
-                }
-            </div>
-
-            <div class="latest-prdouct__slider__item">
-                @{
-                    foreach (var item in Model)
-                    {
-                        <a href="#" class="latest-product__item">
-                            <div class="latest-product__item__pic">
-                                <img src="@Url.Content("/Assets/user/img/latest-product/" + item.Anh)" alt="@item.TenSP">
-                            </div>
-                            <div class="latest-product__item__text">
-                                <h6>@item.TenSP</h6>
-                                <span>@item.GiaSP</span>
-                            </div>
-                        </a>
+                        </div>
                     }
                 }
             </div>
         </div>
     </div>
-</div>
+</section>

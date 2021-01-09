@@ -18,8 +18,7 @@ namespace SHA_Shop.Models
         public virtual DbSet<DONHANG> DONHANGs { get; set; }
         public virtual DbSet<KHUYENMAI> KHUYENMAIs { get; set; }
         public virtual DbSet<LIENHE> LIENHEs { get; set; }
-        public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
-        public virtual DbSet<PhieuPhanHoi> PhieuPhanHois { get; set; }
+        public virtual DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }        
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<SLIDE> SLIDEs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -61,11 +60,7 @@ namespace SHA_Shop.Models
                 .HasMany(e => e.DONHANGs)
                 .WithRequired(e => e.NGUOIDUNG)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PhieuPhanHoi>()
-                .Property(e => e.SDT)
-                .IsFixedLength()
-                .IsUnicode(false);
+        
 
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.GiaSP)

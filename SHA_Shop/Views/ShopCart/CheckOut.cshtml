@@ -1,0 +1,142 @@
+﻿
+@using SHA_Shop.Models
+@model List<ShopCart>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Danh mục</span>
+                    </div>
+                    @Html.Action("CategoryPartial", "Category")
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="@Url.Action("Index", "Product", FormMethod.Get)">
+                            <input type="text" name="search" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">Tìm kiếm</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>0367 888 655</h5>
+                            <span>hỗ trợ 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/Assets/user/img/bread2.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Đặt hàng</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/">Trang chủ</a>
+                        <span>Đặt hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6>
+                    <span class="icon_tag_alt"></span> Bạn có mã giảm giá? <a href="#">Bấm vào đây</a> để nhập mã
+                </h6>
+            </div>
+        </div>
+        @{
+            NGUOIDUNG kh = (NGUOIDUNG)Session["TaiKhoan"];
+        }
+
+        <h4>Thông tin khách hàng</h4>
+        @using (Html.BeginForm("CheckOut", "ShopCart", FormMethod.Post))
+        {
+            <div class="checkout__form">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="checkout__input">
+                                    <p>Họ tên</p>
+                                    <input type="text" value="@kh.Ten">
+                                </div>
+
+                                <div class="checkout__input">
+                                    <p>Địa chỉ</p>
+                                    <input type="text" value="@kh.DiaChi">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Điện thoại</p>
+                                            <input type="text" value="@kh.SDT">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <p>Email</p>
+                                            <input type="text" value="@kh.Email">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="checkout__input">
+                                    <p>Ngày đặt</p>
+                                    <input type="text" value="@DateTime.Now.ToShortDateString()">
+                                </div>
+
+                                <div class="checkout__input">
+                                    <p>Ngày giao</p>
+                                    <input type="date" name="NgayGiaoHang">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-6">
+                                <div class="checkout__order">
+                                    <h4>Đơn hàng của bạn</h4>
+                                    <div class="checkout__order__products">Sản phẩm <span>Thành tiền</span></div>
+                                    @foreach (var item in Model)
+                                    {
+                                        <ul>
+                                            <li><span>@string.Format("{0:0,0}", item.dThanhTien) ₫</span></li>
+                                            <li>@item.sTenSP</li>
+                                        </ul>
+                                    }
+                                    <div class="checkout__order__total">Tổng tiền <span>@string.Format("{0:0,0}", ViewBag.SubTotal) ₫</span></div>
+                                    <button type="submit" class="site-btn">Đặt hàng</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!-- Checkout Section End -->

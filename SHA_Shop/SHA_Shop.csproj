@@ -134,9 +134,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -147,15 +147,14 @@
     </Compile>
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\CHITIETDONHANG.cs" />
-    <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Models\DANHMUC.cs" />
     <Compile Include="Models\DONHANG.cs" />
     <Compile Include="Models\KHUYENMAI.cs" />
     <Compile Include="Models\LIENHE.cs" />
     <Compile Include="Models\SHAshopDB.cs" />
     <Compile Include="Models\NGUOIDUNG.cs" />
-    <Compile Include="Models\PhieuPhanHoi.cs" />
     <Compile Include="Models\SANPHAM.cs" />
+    <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Models\SLIDE.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -259,6 +258,7 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -285,7 +285,6 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\ShopCart\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\LatestProducts.cshtml" />
@@ -298,9 +297,14 @@
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\ShopCart\ShopCartNull.cshtml" />
     <Content Include="Views\Product\CategoryProduct.cshtml" />
+    <Content Include="Views\ShopCart\CheckOut.cshtml" />
+    <Content Include="Views\ShopCart\ConfirmOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Assets\admin\" />
   </ItemGroup>
   <ItemGroup>

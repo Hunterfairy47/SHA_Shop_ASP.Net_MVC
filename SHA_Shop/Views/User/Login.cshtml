@@ -1,4 +1,5 @@
-﻿@model SHA_Shop.Models.NGUOIDUNG
+﻿
+@model SHA_Shop.Models.NGUOIDUNG
 @{ Layout = null; }
 
 <!DOCTYPE html>
@@ -42,6 +43,7 @@
                     </h3>
                     @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "user" }))
                     {
+                       
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TaiKhoan, new { @class = "form-control form-control-user", @placeholder = "Tài khoản" })
@@ -87,3 +89,4 @@
 </body>
 
 </html>
+

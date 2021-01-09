@@ -12,33 +12,52 @@ namespace SHA_Shop.Controllers
     {
         SHAshopDB db = new SHAshopDB();
 
-        // GET: Login
+        // Đăng nhập
         [HttpGet]
         public ActionResult Login()
         {
+            db.Configuration.ProxyCreationEnabled = false;
             return View();
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(string TaiKhoan, string MatKhau)
         {
-            NGUOIDUNG user = db.NGUOIDUNGs.Where(x => x.TaiKhoan == TaiKhoan && x.MatKhau == MatKhau).FirstOrDefault();
-            if (user != null)
-            {
-                Session["TaiKhoan"] = user.TaiKhoan;
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.error = "Tài khoản hoặc mật khẩu không chính xác!";
-                return View();
-            }
-        }
+            if (ModelState.IsValid)
+            {               
+                NGUOIDUNG user = db.NGUOIDUNGs.Where(x => x.TaiKhoan.Equals(TaiKhoan) && x.MatKhau.Equals(MatKhau)).FirstOrDefault();
 
+                if (String.IsNullOrEmpty(TaiKhoan))
+                {
+                    ViewBag.error1 = "Vui lòng nhập tên tài khoản";
+                }
+                if (String.IsNullOrEmpty(MatKhau))
+                {
+                    ViewBag.error2 = "Vui lòng nhập mật khẩu";
+                }
+                else if (user != null)
+                {
+                    Session["IDNguoiDung"] = user.IDNguoiDung;
+                    Session["TaiKhoan"] = user;
+                    Session["Ten"] = user.Ten;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.error = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                    return View("Login");
+                }
+            }
+            return View();
+        }
+        
         public ActionResult LogOut()
         {
-            Session["TaiKhoan"] = "";
+            Session.Clear();
             return RedirectToAction("Login", "User");
         }
+
         //Đăng ký
         public ActionResult Register()
         {

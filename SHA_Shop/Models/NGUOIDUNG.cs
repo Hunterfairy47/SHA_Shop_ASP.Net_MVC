@@ -1,4 +1,4 @@
-namespace SHA_Shop.Models
+﻿namespace SHA_Shop.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,11 +21,13 @@ namespace SHA_Shop.Models
         [StringLength(100)]
         public string TaiKhoan { get; set; }
 
+        [Required]
         [StringLength(17)]
         public string MatKhau { get; set; }
 
         [NotMapped]
-        [Compare("MatKhau")]
+        [Required]
+        [Compare("MatKhau", ErrorMessage = "Mật khẩu nhập lại không đúng")]
         [StringLength(17)]
         public string NhapLaiMatKhau { get; set; }
 
@@ -38,7 +40,9 @@ namespace SHA_Shop.Models
         [StringLength(13)]
         public string SDT { get; set; }
 
+
         [StringLength(100)]
+        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "Đia chỉ Email không hợp lệ")]        
         public string Email { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

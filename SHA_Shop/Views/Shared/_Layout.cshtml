@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,12 @@
     <link rel="stylesheet" href="/Assets/user/css/slicknav.min.css" type="text/css">
     <link href="~/Assets/user/css/style.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        .footer__rule {
+            margin-top: -30px;
+            margin-left: 180px;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,20 +47,20 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="/Checkout"><i class="fa fa-money"></i> <span>1</span></a></li>
-                <li><a href="/ShopCart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                @Html.Action("ShopCartPartial", "ShopCart")
             </ul>
         </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                @if (Session["TaiKhoan"] != null)
+            <div class="header__top__right__auth">             
+                @if (Session["Ten"] == null)
                 {
-    <span>@Session["TaiKhoan"]</span>
-                    <a href="@Url.Action("LogOut", "User")"><i class="fa fa-user"></i> Đăng xuất</a> }
+                    <a href="/User/Login"><i class="fa fa-user"></i> Đăng nhập</a>
+                    <a href="/User/Register"><i class="fa fa-user"></i> Đăng ký</a>}
                 else
                 {
-    <a href="/User/Login"><i class="fa fa-user"></i> Đăng nhập</a>
-                    <a href="/User/Register"><i class="fa fa-user"></i> Đăng ký</a>}
+                    <span>@Session["Ten"]</span>
+                    <a href="@Url.Action("LogOut", "User")"><i class="fa fa-user"></i> Đăng xuất</a>
+                }
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -100,18 +107,15 @@
                                 <a href="https://www.instagram.com/phucan332/"><i class="fa fa-instagram"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                @if (Session["TaiKhoan"] != null)
-                                {                                         
-                                    @Session["TaiKhoan"]
-                                    <a href="@Url.Action("LogOut", "User")" class="ml-4">Đăng xuất</a>                                                                                              
-                                }
+                                @if (Session["Ten"] == null)
+                                {
+                                    <a href="/User/Login"><i class="fa fa-user"></i> Đăng nhập</a>
+                                    <a href="/User/Register"><i class="fa fa-user"></i> Đăng ký</a>}
                                 else
                                 {
-                                    <div class="d-flex">
-                                    <a href="/User/Login" class="mr-4"><i class="fa fa-user"></i> Đăng nhập</a>
-                                    <a href="/user/register"><i class="fa fa-user-plus"></i> đăng ký</a>
-                                    </div>
-                                 }
+                                    <span>@Session["Ten"]</span>
+                                    <a href="@Url.Action("LogOut", "User")"><i class="fa fa-user"></i> Đăng xuất</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -126,7 +130,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                    <nav class="header__menu" style="padding: 40px !important">
                         <ul>
                             <li class="active" style="margin-right: 48px"><a href="/">Trang chủ</a></li>
                             <li>
@@ -138,9 +142,9 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart">
+                    <div class="header__cart" style="padding: 40px !important">
                         <ul>
-                            <li><a href="/Checkout"><i class="fa fa-money"></i> <span>1</span></a></li>
+                            <li><a href="/"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             @Html.Action("ShopCartPartial", "ShopCart")
                         </ul>
 
@@ -178,7 +182,7 @@
                             <li><a href="#">Giao nhận và thanh toán</a></li>
                             <li><a href="#">Đổi trả</a></li>
                         </ul>
-                        <h6>Chính sách</h6>
+                        <h6 class="footer__rule">Chính sách</h6>
                         <ul>
                             <li><a href="#">Chính sách - Quy định chung</a></li>
                             <li><a href="#">Bảo mật thông tin</a></li>

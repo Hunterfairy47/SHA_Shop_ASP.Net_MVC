@@ -132,6 +132,62 @@ namespace SHA_Shop.Controllers
             return View(lsCart);
         }
 
-     
+
+        //Hiển thị view CheckOut để cập nhật các thông tin cho đơn hàng
+        [HttpGet]
+        public ActionResult CheckOut()
+        {
+            //Kiểm tra đăng nhập
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("Login", "User");
+            }
+            if (Session["ShopCart"] == null)
+            {
+                return RedirectToAction("Index", "Product");
+            }
+            
+            //Lấy giỏ hàng từ session
+            List<ShopCart> listShopCart = GetShopCart();
+            ViewBag.TotalQuantity = TotalQuantity();
+            ViewBag.SubTotal = SubTotal();
+
+            return View(listShopCart);
+        }
+
+        [HttpPost]
+        public ActionResult CheckOut(FormCollection collection) 
+        {
+            // Thêm đơn hàng
+            DONHANG dh = new DONHANG();
+            NGUOIDUNG kh = (NGUOIDUNG)Session["TaiKhoan"];
+            List<ShopCart> sc = GetShopCart();
+            dh.IDNguoiDung = kh.IDNguoiDung;
+            dh.NgayDatHang = DateTime.Now;
+            var ngaygiao = String.Format("{0:mm/dd/yyy}", collection["NgayGiaoHang"]);
+            dh.NgayGiaoHang = DateTime.Parse(ngaygiao);
+            dh.TrangThai = false;
+            db.DONHANGs.Add(dh);
+            db.SaveChanges();
+
+            //thêm chi tiết đơn hàng
+            foreach (var item in sc)
+            {
+                CHITIETDONHANG ctdh = new CHITIETDONHANG();
+                ctdh.MaDH = dh.MaDH;
+                ctdh.MaSP = item.iMaSP;
+                ctdh.SoLuong = item.iSoLuong;
+                ctdh.TongTien = (decimal)item.dThanhTien;
+                db.CHITIETDONHANGs.Add(ctdh);       
+            }
+            db.SaveChanges();
+            Session["ShopCart"] = null;
+            return RedirectToAction("ConfirmOrder", "ShopCart");
+        }
+
+        public ActionResult ConfirmOrder()
+        {
+            return View();
+        }
     }
 }

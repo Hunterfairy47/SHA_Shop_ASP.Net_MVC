@@ -1,9 +1,9 @@
-﻿
+﻿@model SHA_Shop.Models.LIENHE
+
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
     <div class="container">
@@ -20,8 +20,8 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text" placeholder="Bạn cần tìm gì?">
+                        <form action="@Url.Action("Index", "Product", FormMethod.Get)">
+                            <input type="text" name="search" placeholder="Bạn cần tìm gì?">
                             <button type="submit" class="site-btn">Tìm kiếm</button>
                         </form>
                     </div>
@@ -64,29 +64,29 @@
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_phone"></span>
-                    <h4>Điện thoại</h4>
-                    <p>+0367 888 655</p>
+                    <h4>Phone</h4>
+                    <p>+01-3-8888-6868</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_pin_alt"></span>
-                    <h4>Địa chỉ</h4>
-                    <p>Quận 9, TP.HCM</p>
+                    <h4>Address</h4>
+                    <p>60-49 Road 11378 New York</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_clock_alt"></span>
-                    <h4>Mở cửa</h4>
-                    <p>10:00 am tới 23:00 pm</p>
+                    <h4>Open time</h4>
+                    <p>10:00 am to 23:00 pm</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                 <div class="contact__widget">
                     <span class="icon_mail_alt"></span>
                     <h4>Email</h4>
-                    <p>phucan332000@gmail.com</p>
+                    <p>hello@colorlib.com</p>
                 </div>
             </div>
         </div>
@@ -108,20 +108,38 @@
                 </div>
             </div>
         </div>
-        <form action="#">
+
+        @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Tên của bạn">
+                    @Html.EditorFor(m => m.Ten, new { htmlAttributes = new { @class = "form-control", @placeholder = "Họ Tên" } })
+                    @Html.ValidationMessageFor(m => m.Ten, "", new { @class = "text-danger" })
                 </div>
+
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Email">
+                    @Html.TextBoxFor(x => x.SDT, new { @class = "form-control form-control-user", @placeholder = "Số điện thoại" })
+                    @Html.ValidationMessageFor(m => m.SDT, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-user", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="col-lg-12 text-center">
+                    @Html.TextAreaFor(m => m.NoiDung, new { @class = "form-control form-control-user", @placeholder = "Nội dung" })
+                    @Html.ValidationMessageFor(m => m.NoiDung, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-lg-12 text-center">
-                    <textarea placeholder="Lời nhắn"></textarea>
-                    <button type="submit" class="site-btn">Gửi tin nhắn</button>
+                    <button type="submit" class="site-btn">Gửi Lời nhắn</button>
+                    <span class="text-danger">@ViewBag.Success</span>
                 </div>
             </div>
-        </form>
+        }
+
     </div>
 </div>
 <!-- Contact Form End -->

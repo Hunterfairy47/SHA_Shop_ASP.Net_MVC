@@ -89,23 +89,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach (var banh in Model)
+                    @foreach (var item in Model)
                     {
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/Assets/User/img/product/" +banh.Anh)">
-                    <ul class="product__item__pic__hover">
-                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="/ProductDetail">@banh.TenSP</a></h6>
-                    <h5>@banh.GiaSP₫</h5>
-                </div>
-            </div>
-        </div>}
-
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="@Url.Content("~/Assets/User/img/product/" +item.Anh)">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="@Url.Action("AddShopCart", "ShopCart", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString()})"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="/ProductDetail">@item.TenSP</a></h6>
+                                    <h5>@item.GiaSP₫</h5>
+                                </div>
+                            </div>
+                        </div>
+                      }     
                 </div>
                 <div class="product__discount">
                     <div class="section-title product__discount__title">

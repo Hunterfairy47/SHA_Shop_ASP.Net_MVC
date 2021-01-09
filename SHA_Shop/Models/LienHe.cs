@@ -9,10 +9,22 @@ namespace SHA_Shop.Models
     [Table("LIENHE")]
     public partial class LIENHE
     {
-        [Key]
-        public int IDLienHe { get; set; }
+        public int ID { get; set; }
 
-        [StringLength(500)]
+        [StringLength(50)]
+        public string Ten { get; set; }
+
+        [StringLength(17)]
+        public string SDT { get; set; }
+
+        [StringLength(250)]
+        public string Email { get; set; }
+
+        [Column(TypeName = "ntext")]
         public string NoiDung { get; set; }
+
+        public DateTime? NgayLH { get; set; }
+
+        public bool? TrangThai { get; set; }
     }
 }
