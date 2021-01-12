@@ -41,11 +41,12 @@ namespace SHA_Shop.Controllers
                     Session["IDNguoiDung"] = user.IDNguoiDung;
                     Session["TaiKhoan"] = user;
                     Session["Ten"] = user.Ten;
+                    ViewBag.message = "Chúc mừng đăng nhập thành công";
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.error = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                    ViewBag.message = "Tên đăng nhập hoặc mật khẩu không đúng!";
                     return View("Login");
                 }
             }

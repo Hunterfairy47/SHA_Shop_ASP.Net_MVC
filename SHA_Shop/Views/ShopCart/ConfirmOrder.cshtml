@@ -11,6 +11,15 @@
         align-items: center;
         display: flex;
     }
+
+        .container.confirmorder a {
+            font-size: 20px;
+            color: hotpink;
+        }
+
+            .container.confirmorder a:hover {
+                color: lightgreen;
+            }
 </style>
 
 <!-- Hero Section Begin -->
@@ -70,7 +79,7 @@
 <div class="container confirmorder">
     <div>
         <h2>Đơn hàng của quý khác đã được chúng tôi ghi nhận. Chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất và giao hàng đúng hẹn</h2>
-        @Html.ActionLink("Về tranng chủ", "Index", "Home")
+        <a href="~/Home/Index"><b>Trở về trang chủ</b> </a>
     </div>
 </div>
 

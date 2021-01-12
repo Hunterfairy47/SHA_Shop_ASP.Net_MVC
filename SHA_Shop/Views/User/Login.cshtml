@@ -38,28 +38,25 @@
             <div class="col-lg-7 card flex-row mx-auto px-0" style="margin-top: 120px">
                 <div class="img-left d-none d-md-flex"></div>
                 <div class="card-body">
+
                     <h3 class="title text-center mt-4 text-gray-900 font-weight-bold mb-4">
                         Đăng nhập
                     </h3>
+                    <span class="text-danger" style="text-align: center">@ViewBag.message</span>
+
                     @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "user" }))
                     {
-                       
+
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.TaiKhoan, new { @class = "form-control form-control-user", @placeholder = "Tài khoản" })
                             @Html.ValidationMessageFor(m => m.TaiKhoan, "", new { @class = "text-danger" })
-                            @if (ViewBag.error != null)
-                            {
-                                <span class="text-danger">@ViewBag.error</span>
-                            }
+                            <span class="text-danger">@ViewBag.error1</span>
                         </div>
                         <div class="form-group">
                             @Html.PasswordFor(x => x.MatKhau, new { @class = "form-control form-control-user", @placeholder = "Mật khẩu" })
                             @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
-                            @if (ViewBag.error != null)
-                            {
-                                <span class="text-danger">@ViewBag.error</span>
-                            }
+                            <span class="text-danger">@ViewBag.error2</span>
                         </div>
                         <button type="submit" class="btn btn-primary btn-user btn-block">
                             Đăng nhập
