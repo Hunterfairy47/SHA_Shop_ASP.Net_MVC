@@ -70,7 +70,7 @@
                 <li>
                     <a href="/Product">Sản phẩm</a>
                 </li>
-                <li><a href="/Blog">Blog</a></li>
+                @*<li><a href="/Blog">Blog</a></li>*@
                 <li><a href="/Contact">Liên hệ</a></li>
             </ul>
         </nav>
@@ -130,19 +130,20 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu" style="padding: 40px !important">
+                    <nav class="header__menu">
                         <ul>
                             <li class="active" style="margin-right: 48px"><a href="/">Trang chủ</a></li>
+                            <li><a href="/About">Giới thiệu</a></li>
                             <li>
                                 <a href="/Product">Sản phẩm</a>
                             </li>
-                            <li><a href="/Blog">Blog</a></li>
+                            @*<li><a href="/Blog">Blog</a></li>*@
                             <li><a href="/Contact">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart" style="padding: 40px !important">
+                    <div class="header__cart" style="padding: 35px !important">
                         <ul>
                             <li><a href="/"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             @Html.Action("ShopCartPartial", "ShopCart")
