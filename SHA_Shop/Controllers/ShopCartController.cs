@@ -10,7 +10,7 @@ namespace SHA_Shop.Controllers
 {
     public class ShopCartController : Controller
     {
-        SHAshopDB db = new SHAshopDB();
+        SHAContextDB db = new SHAContextDB();
         
         //Lấy giỏ hàng
         public List<ShopCart> GetShopCart()

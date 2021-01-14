@@ -18,10 +18,8 @@ namespace SHA_Shop.Models
         [Key]
         public int MaDM { get; set; }
 
-        [StringLength(150)]
+        [StringLength(100)]
         public string TenDM { get; set; }
-
-        public int? Sapxep { get; set; }
 
         public DateTime? Ngaytao { get; set; }
 

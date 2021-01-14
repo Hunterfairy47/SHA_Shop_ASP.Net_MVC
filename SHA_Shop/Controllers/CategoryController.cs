@@ -9,12 +9,12 @@ namespace SHA_Shop.Controllers
 {
     public class CategoryController : Controller
     {
-        SHAshopDB db = new SHAshopDB();
+        SHAContextDB db = new SHAContextDB();
 
         // GET: Category
         public ActionResult Index()
         {
-            return View(db.DANHMUCs.OrderBy(x=> x.Sapxep).ToList());
+            return View();
         }
 
         public PartialViewResult CategoryPartial()

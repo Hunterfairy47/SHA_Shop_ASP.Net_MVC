@@ -9,14 +9,10 @@ namespace SHA_Shop.Models
     [Table("CHITIETDONHANG")]
     public partial class CHITIETDONHANG
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+
         public int MaDH { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaSP { get; set; }
 
         public int? SoLuong { get; set; }

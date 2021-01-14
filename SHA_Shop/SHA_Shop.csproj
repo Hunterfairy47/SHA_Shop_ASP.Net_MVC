@@ -151,9 +151,9 @@
     <Compile Include="Models\DONHANG.cs" />
     <Compile Include="Models\KHUYENMAI.cs" />
     <Compile Include="Models\LIENHE.cs" />
-    <Compile Include="Models\SHAshopDB.cs" />
     <Compile Include="Models\NGUOIDUNG.cs" />
     <Compile Include="Models\SANPHAM.cs" />
+    <Compile Include="Models\SHAContextDB.cs" />
     <Compile Include="Models\ShopCart.cs" />
     <Compile Include="Models\SLIDE.cs" />
     <Compile Include="Models\sysdiagram.cs" />

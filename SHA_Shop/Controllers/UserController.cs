@@ -10,7 +10,7 @@ namespace SHA_Shop.Controllers
 {
     public class UserController : Controller
     {
-        SHAshopDB db = new SHAshopDB();
+        SHAContextDB db = new SHAContextDB();
 
         // Đăng nhập
         [HttpGet]

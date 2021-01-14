@@ -8,7 +8,7 @@ namespace SHA_Shop.Models
     public class ShopCart
     {
         //Tạo đối tượng data chứa dữ liệu từ model SHAshopDB 
-        SHAshopDB data = new SHAshopDB();
+        SHAContextDB data = new SHAContextDB();
         public int iMaSP { get; set; }
         public string sTenSP { get; set; }
         public string sAnh { get; set; }

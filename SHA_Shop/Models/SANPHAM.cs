@@ -22,13 +22,13 @@ namespace SHA_Shop.Models
         [StringLength(250)]
         public string TenSP { get; set; }
 
-        [StringLength(250)]
+        [StringLength(50)]
         public string Anh { get; set; }
 
-        [StringLength(500)]
+        [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
-        [Column(TypeName = "ntext")]
+        [StringLength(500)]
         public string ChiTiet { get; set; }
 
         public decimal? GiaSP { get; set; }
@@ -37,7 +37,7 @@ namespace SHA_Shop.Models
 
         public DateTime? NgayDangSP { get; set; }
 
-        public DateTime? TopHot { get; set; }
+        public bool? TopHot { get; set; }
 
         public int MaDM { get; set; }
 

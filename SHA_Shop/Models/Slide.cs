@@ -12,16 +12,13 @@ namespace SHA_Shop.Models
         [Key]
         public int IDSlide { get; set; }
 
-        [StringLength(250)]
+        [StringLength(50)]
         public string Anh { get; set; }
 
         public int? Sapxep { get; set; }
 
-        [StringLength(250)]
-        public string Link { get; set; }
-
         [StringLength(500)]
-        public string Mota { get; set; }
+        public string Link { get; set; }
 
         public DateTime? NgayTao { get; set; }
     }

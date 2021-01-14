@@ -9,7 +9,7 @@ namespace SHA_Shop.Controllers
 {
     public class ContactController : Controller
     {
-        SHAshopDB db = new SHAshopDB();
+        SHAContextDB db = new SHAContextDB();
         // GET: Contact
         public ActionResult Index()
         {

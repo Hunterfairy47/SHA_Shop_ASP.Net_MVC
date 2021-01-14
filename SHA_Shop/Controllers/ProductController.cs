@@ -12,7 +12,7 @@ namespace SHA_Shop.Controllers
 {
     public class ProductController : Controller
     {
-        SHAshopDB db = new SHAshopDB();
+        SHAContextDB db = new SHAContextDB();
         // GET: ShopProduct
         public ActionResult Index()
         {
