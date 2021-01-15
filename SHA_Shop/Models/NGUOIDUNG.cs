@@ -21,13 +21,15 @@
         [StringLength(100)]
         public string TaiKhoan { get; set; }
 
-        [Required]
-        [StringLength(17)]
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
+        [StringLength(50)]
+        [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Mật khẩu ít nhất phải 6 ký tự")]
         public string MatKhau { get; set; }
 
         [NotMapped]
-        [Required]
-        [Compare("MatKhau", ErrorMessage = "Mật khẩu nhập lại không đúng")]
+        [Required( ErrorMessage = "Vui lòng nhập lại mật khẩu")]
+        [Compare("MatKhau", ErrorMessage = "Mật khẩu nhập lại không khớp")]
         [StringLength(17)]
         public string NhapLaiMatKhau { get; set; }
 

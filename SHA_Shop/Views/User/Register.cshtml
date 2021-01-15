@@ -62,7 +62,7 @@
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Email, new { @class = "form-control form-control-user", @placeholder = "Email" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                            @if (ViewBag.error != null)
+                            @if (ViewBag.error1 != null)
                             {
                                 <span class="text-danger">@ViewBag.error1</span>
                             }
