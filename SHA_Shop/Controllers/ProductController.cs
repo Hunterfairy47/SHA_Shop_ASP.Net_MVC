@@ -57,6 +57,12 @@ namespace SHA_Shop.Controllers
             return View(sp);
         }
 
-   
+
+        // Sản phẩm giảm giá
+        //public PartialViewResult SaleProduct(int? id)
+        //{
+        //    SANPHAM sp = db.SANPHAMs.Find(id);
+        //    return View();
+        //}
     }
 }
