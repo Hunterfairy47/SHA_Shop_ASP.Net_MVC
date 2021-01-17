@@ -1,0 +1,35 @@
+﻿@model SHA_Shop.Areas.Admin.Models.DeleteContactFormModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ LIÊN HỆ</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">XÓA LIÊN HỆ</h6>
+        </div>
+
+        <br />
+        <div class="delete" style="text-align:center;">
+            <h4>Bạn có chắc muốn xóa ?</h4> <p>ID Liên Hệ: @Model.IDLienHe- Nội Dung: @Model.NoiDung</p>
+            @using (Html.BeginForm("Delete", "Contact", FormMethod.Post)) //<form class='user'>
+            {
+                <a href="@Url.Action("Index","Contact")" class="btn btn-primary">Quay lại Danh sách</a>
+                @Html.HiddenFor(m => m.IDLienHe)
+                <button type="submit" style="margin-left:50px;" class="btn btn-warning">
+                    Xóa
+                </button>
+            }
+        </div>
+        </div>
+</div>
+
+<!-- /.container-fluid -->

@@ -1,0 +1,81 @@
+﻿@model List<SHA_Shop.Models.DONHANG>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ ĐƠN HÀNG</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ĐƠN HÀNG</h6>
+        </div>
+
+        <br />
+        <!-- Topbar Search -->
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm..."
+                       aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>                                                               
+        </form>
+
+
+        @*-----------------------------------------------*@
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Ngày giao hàng</th>
+                            <th>Trạng thái</th>
+                            <th>ID người dùng</th>
+                            <th colspan="3" style="text-align:center;">Tùy chỉnh</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.MaDH</td>
+                            <td>@item.NgayDatHang</td>
+                            <td>@item.NgayGiaoHang</td>
+                            <td>
+                                @if (@item.TrangThai == true)
+                                {
+                                    @String.Format("Đã giao")
+                                }
+                                else
+                                {
+                                    @String.Format("Chưa giao")
+                                }
+                                                    </td>
+                            <td>@item.IDNguoiDung</td>
+
+                            <td><a href="@Url.Action("Details", "Order", new {id = item.MaDH} )"><img src="~/Areas/AssetAdmin/img/chitiet24.png"></a></td>
+                            <td><a href="@Url.Action("Edit", "Order", new {id = item.MaDH} )"><img src="~/Areas/AssetAdmin/img/anhedit24.png"></a></td>
+                            <td><a href="@Url.Action("Delete", "Order", new {id = item.MaDH} )"><img src="~/Areas/AssetAdmin/img/2530784-24.png"></a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

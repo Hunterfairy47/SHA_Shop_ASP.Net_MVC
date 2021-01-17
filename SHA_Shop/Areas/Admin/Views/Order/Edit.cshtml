@@ -1,0 +1,62 @@
+﻿@model SHA_Shop.Areas.Admin.Models.EditOrderFormModel 
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ ĐƠN HÀNG</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ĐƠN HÀNG</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="col-lg-6">
+
+                    @using (Html.BeginForm("Edit", "Order", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label>Mã Đơn Hàng</label>
+                            @*<input class="form-control" type="date" placeholder="Ngày Tạo">*@
+                            @Html.TextBoxFor(m => m.MaDH, new { @class = "form-control", placeholder = "Mã Đơn Hàng" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ngày Giao Hàng </label>
+                            @*<input class="form-control" type="date" placeholder="Ngày Giao">*@
+                            @Html.TextBoxFor(m => m.NgayGiaoHang, new { @class = "form-control", placeholder = "Ngày Giao Hàng" })
+                            @Html.ValidationMessage("loi_ngay_giao")
+                        </div>
+
+                        <div class="form-group">
+                            <label>Trạng Thái</label>
+
+                        </div>
+                        <div class="mb-3 form-check">
+                            @Html.CheckBoxFor(m => m.TrangThai, new { @class = "form-check-input" })
+                            <label class="form-check-label" for="exampleCheck1"> Đã Giao</label>
+                        </div>
+                        <div class="form-group">
+                            <label>ID Người Dùng</label>
+                            @Html.TextBoxFor(m => m.IDNguoiDung, new { @class = "form-control", placeholder = "ID Người Dùng" })
+                        </div>
+
+                        <a href="@Url.Action("Index","Order")" class="btn btn-primary">Quay lại Danh sách</a>
+                        <button type="submit" class="btn btn-primary">Chỉnh Sửa</button>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+</div>

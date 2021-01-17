@@ -1,0 +1,34 @@
+﻿@model SHA_Shop.Areas.Admin.Models.DeleteProductFormModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ SẢN PHẨM</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">XÓA SẢN PHẨM</h6>
+        </div>
+
+        <br />
+            <div class="delete" style="text-align:center;">
+                <h4>Bạn có chắc muốn xóa ?</h4> <p>Mã Sản Phẩm @Model.MaSP - Tên Sản Phẩm: @Model.TenSP</p>
+                @using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+                {
+                    <a href="@Url.Action("Index","Product")" class="btn btn-primary">Quay lại Danh sách</a>
+                    @Html.HiddenFor(m => m.MaSP)
+                    <button type="submit" style="margin-left:50px;" class="btn btn-warning">
+                        Xóa
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+<!-- /.container-fluid -->

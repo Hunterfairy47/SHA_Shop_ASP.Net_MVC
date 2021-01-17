@@ -33,7 +33,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="product__item">
                 <div class="product__item__pic set-bg">
-                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"> <img src="@Url.Content("~/Assets/User/img/product/" + item.Anh)" /></a>
+                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"> <img src="@Url.Content(item.Anh)" /></a>
                    
                     <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>

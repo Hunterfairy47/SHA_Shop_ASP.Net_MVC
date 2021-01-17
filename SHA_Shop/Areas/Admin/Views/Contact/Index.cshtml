@@ -1,0 +1,59 @@
+﻿@model List<SHA_Shop.Models.LIENHE>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ LIÊN HỆ</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DANH SÁCH LIÊN HỆ</h6>
+        </div>
+
+        <br />
+
+        <!-- Topbar Search -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>SĐT</th>
+                            <th>Email</th>
+                            <th>Nội dung</th>
+                            <th>Ngày</th>
+                            <th>Trạng thái</th>
+                            <th colspan="2" style="text-align:center;">Tùy chỉnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Ten</td>
+                                <td>@item.SDT</td>
+                                <td>@item.Email</td>
+                                <td>@item.NoiDung</td>
+                                <td>@item.NgayLH</td>
+                                <td>@item.TrangThai</td>
+                                <td><a href="@Url.Action("Edit","Contact",new { id=item.ID})"><img src="~/Areas/AssetAdmin/img/anhedit24.png"></a></td>
+                                <td><a href="@Url.Action("Delete","Contact",new { id=item.ID})"><img src="~/Areas/AssetAdmin/img/2530784-24.png"></a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

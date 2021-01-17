@@ -1,0 +1,53 @@
+﻿@model SHA_Shop.Areas.Admin.Models.CreateSlideFormModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">THÊM SLIDE MỚI</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">SLIDE</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="col-lg-6">
+
+                    @using (Html.BeginForm("Create", "Slide", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {                      
+
+                        <div class="form-group">
+                            <label>Chọn Ảnh</label>
+                            <input type="file" name="ProductImage" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sắp xếp</label>
+                            @Html.TextAreaFor(m => m.Sapxep, new { @class = "form-control", placeholder = "Sắp xếp" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Link</label>
+                            @Html.TextBoxFor(m => m.Link, new { @class = "form-control", placeholder = "Link" })
+                        </div>
+
+
+                        <a href="@Url.Action("Index","Slide")" class="btn btn-primary">Quay lại Danh sách</a>
+
+                        <button type="submit" class="btn btn-primary">Tạo SLIDE Mới</button>
+                        @Html.ValidationMessage("save_error")
+                        @Html.ValidationSummary()
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

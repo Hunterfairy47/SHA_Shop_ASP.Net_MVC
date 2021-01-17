@@ -66,7 +66,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large", style="height: 600px"
-                             src="@Url.Content("~/Assets/User/img/product/" + @Model.Anh)" alt="">
+                             src="@Url.Content(@Model.Anh)" alt="">
                     </div>
                     @*<div class="product__details__pic__slider owl-carousel">
                         <img src="@Url.Content("~/Assets/User/img/product/" + @Model.Anh)" alt="">
@@ -92,7 +92,7 @@
                     <p>
                         @Model.ChiTiet
                     </p>     
-                    <a href="@Url.Action("AddShopCart", "ShopCart", new { @iMaSP = @Model.MaSP, @strURL = Request.Url.ToString()})" class="primary-btn">Thêm vào giỏ hàng</a>
+                    <a href="@Url.Action("AddShopCart", "ShopCart", new { @iMaSP = @Model.MaSP, @strURL = Request.Url.ToString()})" class="primary-btn" style="background: #ff3a95">Thêm vào giỏ hàng</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Còn hàng</b> <span>@Model.SoLuong</span></li>

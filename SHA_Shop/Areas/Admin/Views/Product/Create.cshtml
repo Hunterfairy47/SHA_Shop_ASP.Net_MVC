@@ -1,0 +1,86 @@
+﻿@model SHA_Shop.Areas.Admin.Models.CreateProductFormModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">THÊM SẢN PHẨM MỚI</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">NHẬP SẢN PHẨM</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="col-lg-6">
+
+                    @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div class="form-group">
+                            <label>Tên Sản Phẩm</label>
+                            @*<input class="form-control" type="text" placeholder="Tên Sản Phẩm" />*@
+                            @Html.TextBoxFor(m => m.TenSP, new { @class = "form-control", placeholder = "Tên Sản Phẩm" })
+                            @Html.ValidationMessageFor(m => m.TenSP)
+                        </div>
+
+                        <div class="form-group">
+                            <label>Chọn thư mục Ảnh</label>
+                            <input type="file" name="ProductImage" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mô Tả</label>
+                            @*<textarea class="form-control" rows="3"></textarea>*@
+                            @Html.TextAreaFor(m => m.MoTa, new { @class = "form-control", placeholder = "Mô Tả" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Chi Tiết</label>
+                            @Html.TextAreaFor(m => m.ChiTiet, new { @class = "form-control", placeholder = "Chi Tiết" })
+                        </div>
+                        <div class="form-group">
+                            <label>Giá Bán</label>
+                            @*<input class="form-control" type="number" placeholder="Giá Bán">*@
+                            @Html.TextBoxFor(m => m.GiaSP, new { @class = "form-control", placeholder = "Giá Bán" })
+                            @Html.ValidationMessageFor(m => m.GiaSP)
+                        </div>
+
+                        <div class="form-group">
+                            <label>Số Lượng</label>
+                            @*<input class="form-control" type="text" placeholder="Số Lượng">*@
+                            @Html.TextBoxFor(m => m.SoLuong, new { @class = "form-control", placeholder = "Số Lượng" })
+                            @Html.ValidationMessageFor(m => m.SoLuong)
+                        </div>
+
+                        <!--<div class="form-group">
+                        <label>Ngày Đăng</label>-->
+                        @*<input class="form-control" type="date" placeholder="Ngày Đăng">*@
+
+                        <!--</div>-->
+
+
+                        <div class="form-group">
+                            <label>Mã Danh Mục</label>
+                            @*<input class="form-control" type="text" placeholder="Mã Danh Mục">*@
+                            @Html.TextBoxFor(m => m.MaDM, new { @class = "form-control", placeholder = "Mã Danh Mục" })
+                        </div>
+
+                        <a href="@Url.Action("Index","Product")" class="btn btn-primary">Quay lại Danh sách</a>
+
+                        <button type="submit" class="btn btn-primary">Tạo Mới</button>
+                        @Html.ValidationMessage("save_error")
+                        @Html.ValidationSummary()
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

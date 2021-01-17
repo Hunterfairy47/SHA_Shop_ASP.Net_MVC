@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "uploadsFile";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+
+<h2>Upload HINH BANH</h2>
+
+<p>Ten san pham</p>
+<p>Hinh san pham</p>
+@using (Html.BeginForm("UploadProductImage", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+        <input type="submit" value="Upload" />
+    </div>
+
+
+}  
