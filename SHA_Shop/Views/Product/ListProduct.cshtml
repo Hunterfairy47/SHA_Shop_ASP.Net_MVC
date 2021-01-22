@@ -34,7 +34,7 @@
             <div class="product__item">
                 <div class="product__item__pic set-bg">
                     <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"> <img src="@Url.Content(item.Anh)" /></a>
-                   
+
                     <ul class="product__item__pic__hover">
                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                         <li><a href="@Url.Action("AddShopCart", "ShopCart", new { @iMaSP = item.MaSP, @strURL = Request.Url.ToString()})"><i class="fa fa-shopping-cart"></i></a></li>
@@ -50,7 +50,7 @@
 }
 
 <div class="col-md-12">
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount*@
     <div class="pagination">
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, category = ViewBag.category }))
     </div>

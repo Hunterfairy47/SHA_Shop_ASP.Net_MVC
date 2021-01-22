@@ -19,7 +19,7 @@ namespace SHA_Shop.Controllers
         [HttpPost]
         public ActionResult Index(LIENHE lienhe)
         {
-
+            //ModelState.IsValid cho biết nếu bất kỳ lỗi mô hình đã được thêm vào ModelState.
             if (ModelState.IsValid)
             {           
                 //Lưu lời nhắn

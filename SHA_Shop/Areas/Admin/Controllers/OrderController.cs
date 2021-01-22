@@ -22,76 +22,70 @@ namespace SHA_Shop.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id)
         {
-            DONHANG chitiet = db.DONHANGs.Find(id);
-            return View(chitiet);
+            DONHANG donhang = db.DONHANGs.SingleOrDefault(m => m.MaDH == id);
+            var list = db.CHITIETDONHANGs.Where(m => m.MaDH == id).ToList();
+
+            ViewBag.list = list;
+            if (donhang == null)
+            {
+                return RedirectToAction("Index", "Order");
+            }
+            return View(donhang);
         }
 
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var donhang = db.DONHANGs.Find(id);
-            if (donhang == null)
-            {
-                return RedirectToAction("Index", "Order");
-            }
-            var chinhsua = new EditOrderFormModel();
-            //chinhsua.NgayGiaoHang = donhang.NgayGiaoHang.ToString("dd/MM/yyyy");
-
-
-            return View(chinhsua);
-        }
-        [HttpPost]
-        public ActionResult Edit(int? id)
-        {
-            if (ModelState.IsValid)
-            {
-                var donhang = db.DONHANGs.Find(id);
-                if (donhang != null)
-                {
-
-                    donhang.NgayGiaoHang = donhang.NgayGiaoHang;
-                    donhang.TrangThai = donhang.TrangThai;
-
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Oder");
-                }
-
-            }
-            return View();
-        }
-
-
-        [HttpGet]
-        public ActionResult Delete(int id)
-        {
             var donhang = db.DONHANGs.FirstOrDefault(m => m.MaDH == id);
             if (donhang == null)
             {
                 return RedirectToAction("Index", "Order");
             }
-            var xoa = new DeleteOrderFormModel();
-            xoa.MaDH = donhang.MaDH;
 
-            return View(xoa);
-        }
-        [HttpPost]
-        public ActionResult Delete(DeleteOrderFormModel model)
-        {
-            var donhang = db.DONHANGs.FirstOrDefault(m => m.MaDH == model.MaDH);
-            if (donhang == null)
+            var chinhsua = new EditOrderFormModel();
+            chinhsua.MaDH = donhang.MaDH;
+            if (donhang.TrangThai.HasValue)
             {
-                return RedirectToAction("Index", "Order");
+                chinhsua.TrangThai = donhang.TrangThai.Value;
             }
 
-            db.DONHANGs.Remove(donhang);
 
-            db.SaveChanges();
-
-            return RedirectToAction("Index", "Order");
+            if (donhang.NgayGiaoHang.HasValue)
+            {
+                chinhsua.NgayGiaoHang = donhang.NgayGiaoHang.Value.ToString("dd/MM/yyyy");
+            }
+            chinhsua.IDNguoiDung = donhang.IDNguoiDung;
+            return View(chinhsua);
         }
 
+        [HttpPost]
+        public ActionResult Edit(EditOrderFormModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var donhang = db.DONHANGs.FirstOrDefault(m => m.MaDH == model.MaDH);
+                if (donhang != null)
+                {
+                    donhang.MaDH = model.MaDH;
+                    donhang.TrangThai = model.TrangThai;
+                    try
+                    {
+                        donhang.NgayGiaoHang = DateTime.ParseExact(model.NgayGiaoHang, "dd/MM/yyyy", null);
+                    }
+                    catch { }
+                    //donhang.NgayGiaoHang = model.NgayGiaoHang;
+                    donhang.IDNguoiDung = model.IDNguoiDung;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Order");
+            }
+            return View(model);
+        }
+
+
+     
     }
 }

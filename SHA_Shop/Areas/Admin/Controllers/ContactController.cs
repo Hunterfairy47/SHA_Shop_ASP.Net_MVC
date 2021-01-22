@@ -52,35 +52,6 @@ namespace SHA_Shop.Areas.Admin.Controllers
             return RedirectToAction("Index", "Contact");
         }
 
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            var lienhe = db.LIENHEs.FirstOrDefault(m => m.ID == id);
-            if (lienhe == null)
-            {
-                return RedirectToAction("Index", "Contact");
-            }
 
-            var chinhsua = new EditContact();
-            //chinhsua.trangthai = (bool)lienhe.trangthai;
-            return View(chinhsua);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(EditContact model)
-        {            
-            if (ModelState.IsValid)
-            {
-                var lienhe = db.LIENHEs.FirstOrDefault(m => m.ID == model.id);
-                if (lienhe != null)
-                {
-                    lienhe.TrangThai = true;                          
-                    db.SaveChanges();
-                }
-
-                return RedirectToAction("Index", "Contact");
-            }
-            return View(model);
-        }
     }
 }

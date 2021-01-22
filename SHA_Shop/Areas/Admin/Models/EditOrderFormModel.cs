@@ -12,7 +12,7 @@ namespace SHA_Shop.Areas.Admin.Models
 
         public String NgayGiaoHang { get; set; }
 
-        public bool? TrangThai { get; set; }
+        public bool TrangThai { get; set; }
 
         public int IDNguoiDung { get; set; }
     }

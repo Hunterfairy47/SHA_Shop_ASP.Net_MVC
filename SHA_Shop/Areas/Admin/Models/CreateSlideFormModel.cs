@@ -13,7 +13,8 @@ namespace SHA_Shop.Areas.Admin.Models
         public int Sapxep { get; set; }
         public String Link{ get; set; }
 
-
+        //[Required(ErrorMessage = "Bạn chưa nhập Giá sản phẩm")]
+        public String Mota{ get; set; }
 
         //[Required(ErrorMessage = "Bạn chưa nhập thêm ảnh Slide")]
         public HttpPostedFileBase SlideImage { get; set; }

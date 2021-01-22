@@ -29,7 +29,7 @@ namespace SHA_Shop.Areas.Admin.Controllers
             model.TotalPages = totalPages;
             model.PageSize = pagesize;
             model.CurrentPage = page;
-            model.Items = db.SANPHAMs.Where(x => x.TenSP.Contains(searchkey)).OrderByDescending(m=> m.NgayDangSP).Skip((page - 1) * pagesize).Take(pagesize).ToList();
+            model.Items = db.SANPHAMs.Where(x => x.TenSP.Contains(searchkey)).OrderByDescending(m => m.NgayDangSP).Skip((page - 1) * pagesize).Take(pagesize).ToList();
 
 
             ViewBag.searchkey = searchkey;
@@ -59,7 +59,11 @@ namespace SHA_Shop.Areas.Admin.Controllers
                 sp.SoLuong = model.SoLuong;
                 sp.NgayDangSP = DateTime.Now;
                 sp.MaDM = model.MaDM;
-  
+                //try
+                //{
+                //    sp.TopHot = DateTime.ParseExact(model.TopHot, "dd/MM/yyyy", null);
+                //}
+                //catch { }
 
                 sp.MaDM = model.MaDM;
                 if (model.ProductImage != null)

@@ -21,7 +21,12 @@
                 <div class="col-lg-6">
 
                     @using (Html.BeginForm("Create", "Slide", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {                      
+                    {
+                        <div class="form-group">
+                            <label>ID Slide</label>
+                            @Html.TextBoxFor(m => m.IDSlide, new { @class = "form-control", placeholder = "ID Slide" })
+                            @Html.ValidationMessageFor(m => m.IDSlide)
+                        </div>
 
                         <div class="form-group">
                             <label>Chọn Ảnh</label>
@@ -37,7 +42,10 @@
                             <label>Link</label>
                             @Html.TextBoxFor(m => m.Link, new { @class = "form-control", placeholder = "Link" })
                         </div>
-
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            @Html.TextAreaFor(m => m.Mota, new { @class = "form-control", placeholder = "Mô tả" })
+                        </div>
 
                         <a href="@Url.Action("Index","Slide")" class="btn btn-primary">Quay lại Danh sách</a>
 

@@ -139,7 +139,6 @@
     <Compile Include="Areas\Admin\Controllers\AccountListController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
@@ -154,12 +153,10 @@
     <Compile Include="Areas\Admin\Models\DeleteCategoryProductFormModel.cs" />
     <Compile Include="Areas\Admin\Models\DeleteContactFormModel.cs" />
     <Compile Include="Areas\Admin\Models\DeleteFeedbackFormModel.cs" />
-    <Compile Include="Areas\Admin\Models\DeleteOrderFormModel.cs" />
     <Compile Include="Areas\Admin\Models\DeleteProductFormModel.cs" />
     <Compile Include="Areas\Admin\Models\DeleteSlideFormModel.cs" />
     <Compile Include="Areas\Admin\Models\EditAccountListFormModel.cs" />
     <Compile Include="Areas\Admin\Models\EditCategoryProductFormModel.cs" />
-    <Compile Include="Areas\Admin\Models\EditContact.cs" />
     <Compile Include="Areas\Admin\Models\EditOrderFormModel.cs" />
     <Compile Include="Areas\Admin\Models\EditProductFormModel.cs" />
     <Compile Include="Areas\Admin\Models\EditSlideFormModel.cs" />
@@ -2075,6 +2072,7 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
+    <Content Include="Areas\Admin\Views\AccountList\avpwzhbw.bdq~" />
     <Content Include="Areas\Admin\Views\AccountList\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AccountList\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AccountList\Edit.cshtml" />
@@ -2086,7 +2084,6 @@
     <Content Include="Areas\Admin\Views\Contact\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
@@ -2278,7 +2275,6 @@
     <Content Include="Areas\AssetAdmin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\AssetAdmin\vendor\jquery\jquery.min.map" />
     <Content Include="Areas\AssetAdmin\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2380,7 +2376,6 @@
     <Content Include="Views\Product\CategoryProduct.cshtml" />
     <Content Include="Views\ShopCart\CheckOut.cshtml" />
     <Content Include="Views\ShopCart\ConfirmOrder.cshtml" />
-    <Content Include="Views\Product\SaleProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

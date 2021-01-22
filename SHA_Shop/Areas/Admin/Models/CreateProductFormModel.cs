@@ -12,7 +12,7 @@ namespace SHA_Shop.Areas.Admin.Models
         public int MaSP { get; set; }
         [Required(ErrorMessage = "Bạn chưa nhập Tên sản phẩm")]
         public String TenSP { get; set; }
-        public String Anh { get; set; }
+        //public String Anh { get; set; }
         public String MoTa { get; set; }
         public String ChiTiet { get; set; }
         [Required(ErrorMessage = "Bạn chưa nhập Giá sản phẩm")]

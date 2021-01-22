@@ -1,70 +1,62 @@
-﻿@model IEnumerable<SHA_Shop.Models.DONHANG>
-
+﻿@model SHA_Shop.Models.DONHANG
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+
+    var list = (List<SHA_Shop.Models.CHITIETDONHANG>)ViewBag.list;
 }
 
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-<!DOCTYPE html>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">QUẢN LÝ ĐƠN HÀNG</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">QUẢN LÍ ĐƠN HÀNG</h1>
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">ĐƠN HÀNG</h6>
-            </div>
-
-            <br />
-
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">CHI TIẾT ĐƠN HÀNG</h6>
         </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Trạng thái </th>
+                            <th>Tổng Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in list)
+                        {
+                            <tr>
+                                <td>@item.MaDH</td>
+                                <td>@item.MaSP</td>
+                                <td>@item.SANPHAM.TenSP</td>
+                                <td>@item.SoLuong</td>
+                                <td>
+                                    @if (@item.DONHANG.TrangThai == true)
+                                    {
+                                        @String.Format("Đã giao")
+                                    }
+                                    else
+                                    {
+                                        @String.Format("Chưa giao")
+                                    }
+                                </td>
+                                <td>@item.TongTien</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="@Url.Action("Index","Order")" class="btn btn-primary">Quay lại Danh sách</a>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
     </div>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayDatHang)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayGiaoHang)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrangThai)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IDNguoiDung)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayDatHang)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayGiaoHang)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TrangThai)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IDNguoiDung)
-                </td>
-            </tr>
-        }
-
-    </table>
-</body>
-</html>
+</div>

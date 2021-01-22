@@ -14,7 +14,7 @@ namespace SHA_Shop.Areas.Admin.Models
         [Required(ErrorMessage = "Bạn chưa nhập tên danh mục")]
         public String TenDM { get; set; }
 
-        public DateTime NgayTao { get; set; }
+        public int Sapxep { get; set; }
 
         //public DateTime Ngaytao {get;set;}
 

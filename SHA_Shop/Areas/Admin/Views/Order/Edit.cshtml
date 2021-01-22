@@ -1,4 +1,4 @@
-﻿@model SHA_Shop.Areas.Admin.Models.EditOrderFormModel 
+﻿@model SHA_Shop.Areas.Admin.Models.EditOrderFormModel
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
@@ -35,14 +35,12 @@
                             @Html.TextBoxFor(m => m.NgayGiaoHang, new { @class = "form-control", placeholder = "Ngày Giao Hàng" })
                             @Html.ValidationMessage("loi_ngay_giao")
                         </div>
-
                         <div class="form-group">
                             <label>Trạng Thái</label>
-
-                        </div>
-                        <div class="mb-3 form-check">
-                            @Html.CheckBoxFor(m => m.TrangThai, new { @class = "form-check-input" })
-                            <label class="form-check-label" for="exampleCheck1"> Đã Giao</label>
+                            <div style="margin-left: 20px">
+                                @Html.CheckBoxFor(m => m.TrangThai, new { @class = "form-check-input" })
+                                <label class="form-check-label" for="exampleCheck1"> Đã Giao</label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>ID Người Dùng</label>

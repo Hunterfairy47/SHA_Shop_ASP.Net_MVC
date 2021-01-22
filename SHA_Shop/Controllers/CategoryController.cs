@@ -19,7 +19,7 @@ namespace SHA_Shop.Controllers
 
         public PartialViewResult CategoryPartial()
         {
-            var categoryList = db.DANHMUCs.OrderBy(x => x.TenDM).ToList();
+            var categoryList = db.DANHMUCs.OrderBy(x => x.MaDM).ToList();
             return PartialView(categoryList);
         }
     }

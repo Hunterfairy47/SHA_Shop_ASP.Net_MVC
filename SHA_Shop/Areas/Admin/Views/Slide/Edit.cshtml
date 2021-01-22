@@ -45,6 +45,11 @@
                             @Html.TextBoxFor(m => m.Link, new { @class = "form-control", placehover = "Link" })
                         </div>
 
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            @Html.TextAreaFor(m => m.Mota, new { @class = "form-control", placehover = "Mô tả" })
+                        </div>
+
                         <a href="@Url.Action("Index","Slide")" class="btn btn-default">Quay lại danh sách</a>
                         <button type="submit" class="btn btn-primary">Chỉnh Sửa</button>
                     }

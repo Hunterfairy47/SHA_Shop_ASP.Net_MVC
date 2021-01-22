@@ -21,13 +21,20 @@
 
                     @using (Html.BeginForm("Create", "CategoryProduct", FormMethod.Post)) //<form class='user'>
                     {
-   
+                        <div class="form-group">
+                            <label>Mã Danh Mục</label>
+                            @*<input class="form-control" type="text" placeholder="Mã Danh Mục">*@
+                            @Html.TextBoxFor(m => m.MaDM, new { @class = "form-control", placehover = "Mã Danh Mục" })
+                            @Html.ValidationMessageFor(m => m.MaDM)
+                        </div>
+
                         <div class="form-group">
                             <label>Tên Danh Mục</label>
                             @*<input class="form-control" type="text" placeholder="Tên Danh Mục">*@
                             @Html.TextBoxFor(m => m.TenDM, new { @class = "form-control", placehover = "Tên Danh Mục" })
                             @Html.ValidationMessageFor(m => m.TenDM)
-                        </div>
+                        </div>                       
+
                         <a href="@Url.Action("Index","CategoryProduct")" class="btn btn-primary">Quay lại Danh sách</a>
                         <button type="submit" class="btn btn-primary">Tạo Mới</button>
                         @Html.ValidationMessage("save_error")
@@ -39,4 +46,4 @@
     </div>
     <!-- /.container-fluid -->
 
-</div>
+    </div>

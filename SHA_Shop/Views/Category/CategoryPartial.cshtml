@@ -5,12 +5,10 @@
     @{
         foreach (var item in Model)
         {
-
             <li>
-                @*<a href="@Url.Action("CategoryProduct", "Product", new { id = item.MaDM})">@item.TenDM</a>*@
                 @Html.ActionLink(@item.TenDM, "Index", "Product", new { page = 1, category = @item.MaDM }, null)
             </li>
-    }
+        }
     }
 </ul>
 

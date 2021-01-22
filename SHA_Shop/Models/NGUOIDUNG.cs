@@ -18,6 +18,7 @@
         [Key]
         public int IDNguoiDung { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập tài khoản")]
         [StringLength(100)]
         public string TaiKhoan { get; set; }
 
@@ -33,15 +34,19 @@
         [StringLength(17)]
         public string NhapLaiMatKhau { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập họ tên")]
         [StringLength(250)]
         public string Ten { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
         [StringLength(250)]
         public string DiaChi { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
         [StringLength(13)]
         public string SDT { get; set; }
 
+        [Required(ErrorMessage = "Vui lòng nhập Email")]
         [StringLength(100)]
         public string Email { get; set; }
 

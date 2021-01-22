@@ -34,7 +34,7 @@ namespace SHA_Shop.Areas.Admin.Controllers
                 var slide = new SLIDE();
                 slide.IDSlide = model.IDSlide;
                 slide.Sapxep = model.Sapxep;
-                slide.Link = model.Link;              
+                slide.Link = model.Link;
                 slide.NgayTao = DateTime.Now;
 
                 if (model.SlideImage != null)

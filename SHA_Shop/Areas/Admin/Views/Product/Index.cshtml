@@ -54,7 +54,8 @@
                             <th>Mã danh mục</th>
                             <th colspan="2" style="text-align:center;">Tùy chỉnh</th>
                         </tr>
-                    </thead>                 
+                    </thead>
+
                     <tbody>
                         @foreach (var item in Model.Items)
                         {
@@ -80,16 +81,16 @@
                     </tbody>
                 </table>
                 @*Total Items: 10
-                page size: 3
+                    page size: 3
 
-                => 10/3 =3.333333
-                Math.Ceil  3.3333 => 4
+                    => 10/3 =3.333333
+                    Math.Ceil  3.3333 => 4
 
-                ==> 1 /3
-                ==> 2/3
-                ==> 3/3
-                ==> 4/1*@
-                <div class="paging" >
+                    ==> 1 /3
+                    ==> 2/3
+                    ==> 3/3
+                    ==> 4/1*@
+                <div class="paging">
                     @if (Model.TotalPages > 1)
                     {
                         <nav aria-label="Page navigation example">
